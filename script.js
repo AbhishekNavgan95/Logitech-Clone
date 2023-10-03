@@ -26,7 +26,6 @@ menuBtn.addEventListener("click", () => {
 cross.addEventListener("click", () => {
   Nav2Sec1.classList.remove("nav2-sec1-active");
   navTwo.classList.toggle("nav2-container-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
 })
 
 
@@ -47,7 +46,6 @@ search.addEventListener("click", () => {
 search2.addEventListener("click", () => {
   searchContainer.classList.toggle("search-container-active");
   Nav2Sec1.classList.remove("nav2-sec1-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
   navTwo.classList.remove("nav2-container-active");
 })
 
@@ -67,7 +65,6 @@ let link3 = document.querySelector(".link-3");
 let link4 = document.querySelector(".link-4");
 let link5 = document.querySelector(".link-5");
 let Nav2Sec1 = document.querySelector(".nav2-sec1");
-let Nav2Sec2 = document.querySelector(".nav2-sec2");
 let nav2LinksContainer = document.querySelectorAll(".nav2-links-container")
 
 link1.addEventListener("mouseover", () => {
@@ -76,12 +73,10 @@ link1.addEventListener("mouseover", () => {
   })
   link1.classList.add("nav2-links-container-active");
   Nav2Sec1.classList.add("nav2-sec1-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
 })
 
 link2.addEventListener("mouseover", () => {
   Nav2Sec1.classList.remove("nav2-sec1-active");
-  Nav2Sec2.classList.add("nav2-sec2-active");
   nav2LinksContainer.forEach((e) => {
     e.classList.remove("nav2-links-container-active");
   })
@@ -89,7 +84,6 @@ link2.addEventListener("mouseover", () => {
 })
 link3.addEventListener("mouseover", () => {
   Nav2Sec1.classList.remove("nav2-sec1-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
   nav2LinksContainer.forEach((e) => {
     e.classList.remove("nav2-links-container-active");
   })
@@ -97,7 +91,6 @@ link3.addEventListener("mouseover", () => {
 })
 link4.addEventListener("mouseover", () => {
   Nav2Sec1.classList.remove("nav2-sec1-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
   nav2LinksContainer.forEach((e) => {
     e.classList.remove("nav2-links-container-active");
   })
@@ -105,17 +98,11 @@ link4.addEventListener("mouseover", () => {
 })
 link5.addEventListener("mouseover", () => {
   Nav2Sec1.classList.remove("nav2-sec1-active");
-  Nav2Sec2.classList.remove("nav2-sec2-active");
   nav2LinksContainer.forEach((e) => {
     e.classList.remove("nav2-links-container-active");
   })
   link5.classList.add("nav2-links-container-active");
 })
-
-
-
-
-
 
 
 // main-nav hide on scroll
@@ -124,18 +111,19 @@ let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
   if (lastScrollY < window.scrollY) {
-    nav.classList.add("nav-hidden");
+    console.log("yes")
+    gsap.to(".nav-container", {
+      y: "-100%",
+    })
   }
   else {
-    nav.classList.remove("nav-hidden");
+    console.log("no")
+    gsap.to(".nav-container", {
+      y: "0%",
+    })
   }
   lastScrollY = window.scrollY;
 });
-
-
-
-
-
 
 
 /***************************swiper js start ****************************/
@@ -167,19 +155,11 @@ gsap.from(".top-in", {
 })
 
 gsap.from(".hero-h4, .hero-h1, .hero-p, .hero-btn, .hero-hr", {
-
   x: "50%",
   duration: 0.5,
   opacity: 0,
   delay: 0,
   stagger: .1,
-
-  scrollTrigger: {
-    trigger: ".hero-title",
-    scroller: "body",
-    start: "top 80%",
-    // markers: true
-  }
 })
 
 gsap.from(".bottom-in", {
@@ -208,7 +188,6 @@ gsap.from(".left-1-h1, .left-1-p, .left-1-a, .left-1-hr", {
     trigger: ".left-1",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 gsap.from(".left-2-h1, .left-2-p, .left-2-a, .left-2-hr", {
@@ -223,7 +202,6 @@ gsap.from(".left-2-h1, .left-2-p, .left-2-a, .left-2-hr", {
     trigger: ".left-2",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 gsap.from(".left-3-h1, .left-3-p, .left-3-a, .left-3-hr", {
@@ -238,7 +216,6 @@ gsap.from(".left-3-h1, .left-3-p, .left-3-a, .left-3-hr", {
     trigger: ".left-3",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 
@@ -254,7 +231,6 @@ gsap.from(".right-1-h1, .right-1-p, .right-1-a, .right-1-hr", {
     trigger: ".right-1",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 gsap.from(".right-2-h1, .right-2-p, .right-2-a, .right-2-hr", {
@@ -269,7 +245,6 @@ gsap.from(".right-2-h1, .right-2-p, .right-2-a, .right-2-hr", {
     trigger: ".right-2",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 gsap.from(".right-3-h1, .right-3-p, .right-3-a, .right-3-hr", {
@@ -284,7 +259,6 @@ gsap.from(".right-3-h1, .right-3-p, .right-3-a, .right-3-hr", {
     trigger: ".right-3",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 gsap.from(".right-4-h1, .right-4-p, .right-4-a, .right-4-hr", {
@@ -299,7 +273,6 @@ gsap.from(".right-4-h1, .right-4-p, .right-4-a, .right-4-hr", {
     trigger: ".right-4",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 
@@ -313,7 +286,6 @@ gsap.from(".subfooter", {
     trigger: ".subfooter",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 
@@ -327,7 +299,6 @@ gsap.from(".footer-container", {
     trigger: ".footer",
     scroller: "body",
     start: "top 80%",
-    // markers: true
   }
 })
 
